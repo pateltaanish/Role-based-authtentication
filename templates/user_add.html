@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>{{ title }}</h2>
+<form method="post" class="card">
+  <label>New {{ role_label }} Username
+    <input name="username" required placeholder="e.g., librarian, member1">
+  </label>
+  <label>New {{ role_label }} Password
+    <input name="password" type="password" required placeholder="enter password">
+  </label>
+  <button type="submit">Add {{ role_label }}</button>
+</form>
+<p><a href="{{ url_for('admin_users') }}">← Back to Manage Users</a></p>
+{% endblock %}

@@ -1,0 +1,9 @@
+﻿{% extends "base.html" %}
+{% block content %}
+  <h1>Welcome to SJSU_Library</h1>
+  {% if not user %}
+    <p>Use <a href="{{ url_for('login') }}">Login</a> or create the first account at <a href="{{ url_for('provision') }}">Provision</a>.</p>
+  {% else %}
+    <p>You are logged in as <strong>{{ user.username }}</strong> ({{ user.role }}).</p>
+  {% endif %}
+{% endblock %}

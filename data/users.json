@@ -1,0 +1,26 @@
+{
+  "admin": {
+    "password_hash": "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918",
+    "role": "Library Administrator"
+  },
+  "librarian": {
+    "password_hash": "2c445e1c04df4e247c2089245b68fc811f728f7d30ff14a6d64a4faac58e6270",
+    "role": "Librarian"
+  },
+  "member": {
+    "password_hash": "e31ab643c44f7a0ec824b59d1194d60dac334200d845e61d2d289daa0f087ea4",
+    "role": "Library Member"
+  },
+  "L1": {
+    "password_hash": "3eca72d86f8bf388f2cb1d0f8468df55a4a2d243acd6dd5934d5507409ac2ac5",
+    "role": "Librarian"
+  },
+  "sjsu student": {
+    "password_hash": "3eca72d86f8bf388f2cb1d0f8468df55a4a2d243acd6dd5934d5507409ac2ac5",
+    "role": "Library Member"
+  },
+  "member 2": {
+    "password_hash": "c3583a3c34e250f1c5de518dc5849aeb7619de92531447699040fb7373ebc233",
+    "role": "Library Member"
+  }
+}

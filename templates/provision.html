@@ -1,0 +1,32 @@
+﻿{% extends "base.html" %}
+{% block content %}
+<h2>Provision</h2>
+<form method="post" class="card">
+  <label>Username
+    <input name="username" required placeholder="e.g., admin, librarian, member, member1">
+  </label>
+
+  <label>Password
+    <input name="password" type="password" required placeholder="enter the password for this username">
+  </label>
+
+  <label>Role
+    <select name="role" required>
+      <option value="Library Administrator">Library Administrator</option>
+      <option value="Librarian">Librarian</option>
+      <option value="Library Member">Library Member</option>
+    </select>
+  </label>
+
+  <button type="submit">Submit</button>
+</form>
+
+<p class="hint">
+  Rules:
+  <br>• If the username exists, the <em>password must hash to the stored <code>password_hash</code></em>
+  and the selected role must match that record.
+  <br>• If the username doesn’t exist, it will be created with <code>password_hash = SHA256(password)</code> and the selected role.
+  <br>• Data file: <code>data/users.json</code> (flat object keyed by username).
+</p>
+{% endblock %}
+

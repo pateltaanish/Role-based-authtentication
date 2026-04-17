@@ -1,0 +1,13 @@
+﻿body { font-family: system-ui, Arial, sans-serif; margin:0; background:#0f1115; color:#e6e6e6; }
+.nav { background:#1a1d24; padding:12px 16px; display:flex; gap:12px; align-items:center; }
+.nav a { color:#9bd; text-decoration:none; }
+.nav .right { margin-left:auto; }
+.container { max-width:900px; margin:24px auto; padding:0 16px; }
+.card { display:flex; flex-direction:column; gap:12px; background:#151923; padding:16px; border-radius:12px; }
+.card input, .card select { width:100%; padding:8px; border-radius:8px; border:1px solid #2a3242; background:#0f1320; color:#e6e6e6; }
+.card button { padding:10px 14px; border:0; border-radius:10px; background:#3a8dde; color:white; cursor:pointer; }
+.flash { padding:10px 12px; border-radius:10px; margin:12px 0; }
+.flash.success { background:#15361e; color:#b7f5c7; }
+.flash.danger { background:#37151a; color:#ffb3c0; }
+.flash.warning { background:#33260b; color:#ffdca6; }
+.hint { color:#aab; font-size:0.95rem; }

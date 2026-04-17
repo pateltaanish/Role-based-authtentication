@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Manage Users (Admin)</h2>
+<div class="grid">
+  <a class="tile" href="{{ url_for('add_librarian') }}">
+    <h3>Add Librarian</h3>
+    <p>Create a Librarian account.</p>
+  </a>
+
+  <a class="tile" href="{{ url_for('remove_librarian') }}">
+    <h3>Remove Librarian</h3>
+    <p>Remove a Librarian account.</p>
+  </a>
+
+  <a class="tile" href="{{ url_for('add_member') }}">
+    <h3>Add Member</h3>
+    <p>Create a Member account.</p>
+  </a>
+
+  <a class="tile" href="{{ url_for('remove_member') }}">
+    <h3>Remove Member</h3>
+    <p>Remove a Member account.</p>
+  </a>
+</div>
+<p><a href="{{ url_for('dashboard') }}">← Back to Dashboard</a></p>
+{% endblock %}

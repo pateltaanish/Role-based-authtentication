@@ -1,0 +1,47 @@
+﻿<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>SJSU Library</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<nav class="nav">
+  <a href="{{ url_for('home') }}">Home</a>
+  <a href="{{ url_for('provision') }}">Provision</a>
+
+  {# compute the current user safely #}
+  {% set current = user or session.get('user') %}
+
+  {% if current %}
+    <a href="{{ url_for('dashboard') }}">Dashboard</a>
+    {# Uncomment this link ONLY if you added the /db route named view_db
+    {% if current.role == 'Library Administrator' %}
+      <a href="{{ url_for('view_db') }}">DB</a>
+    {% endif %}
+    #}
+
+    <span class="right">
+      Hi {{ current.username }} ({{ current.role }})
+    </span>
+    <a href="{{ url_for('logout') }}">Logout</a>
+  {% else %}
+    <span class="right"></span>
+    <a href="{{ url_for('login') }}">Login</a>
+  {% endif %}
+</nav>
+
+{% with msgs = get_flashed_messages(with_categories=true) %}
+  {% for cat, m in msgs %}
+    <div class="flash {{cat}}">{{ m }}</div>
+  {% endfor %}
+{% endwith %}
+
+<main class="container">
+  {% block content %}{% endblock %}
+</main>
+
+</body>
+</html>

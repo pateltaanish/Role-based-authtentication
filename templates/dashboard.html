@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+{% block content %}
+{% set current = user or session.get('user') %}
+<h2>Dashboard</h2>
+<p>Logged in as <strong>{{ current.username }}</strong> ({{ current.role }})</p>
+
+<div class="grid">
+  {# Admin: Manage Users (tile always visible; disabled if not allowed) #}
+  {% if 'manage_users' in allowed %}
+    <a class="tile" href="{{ url_for('admin_users') }}">
+      <h3>Manage Users</h3>
+      <p>Add/Remove Librarian, Add/Remove Member</p>
+    </a>
+  {% else %}
+    <div class="tile disabled">
+      <h3>Manage Users</h3>
+      <p>Admins only</p>
+    </div>
+  {% endif %}
+
+  {# Books: Add #}
+  {% if 'books:add' in allowed %}
+    <a class="tile" href="{{ url_for('books_add') }}">
+      <h3>Add Books</h3>
+      <p>Add books to catalog</p>
+    </a>
+  {% else %}
+    <div class="tile disabled">
+      <h3>Add Books</h3>
+      <p>Admins/Librarians</p>
+    </div>
+  {% endif %}
+
+  {# Books: Delete #}
+  {% if 'books:delete' in allowed %}
+    <a class="tile" href="{{ url_for('books_delete') }}">
+      <h3>Delete Books</h3>
+      <p>Delete books from catalog</p>
+    </a>
+  {% else %}
+    <div class="tile disabled">
+      <h3>Delete Books</h3>
+      <p>Admins/Librarians</p>
+    </div>
+  {% endif %}
+
+  {# Borrow #}
+  {% if 'borrow' in allowed %}
+    <a class="tile" href="{{ url_for('borrow_book') }}">
+      <h3>Borrow Books</h3>
+    </a>
+  {% else %}
+    <div class="tile disabled">
+      <h3>Borrow Books</h3>
+      <p>Admins/Members</p>
+    </div>
+  {% endif %}
+
+  {# Return #}
+  {% if 'return' in allowed %}
+    <a class="tile" href="{{ url_for('return_book') }}">
+      <h3>Return Books</h3>
+    </a>
+  {% else %}
+    <div class="tile disabled">
+      <h3>Return Books</h3>
+      <p>Admins/Members</p>
+    </div>
+  {% endif %}
+
+  {# Catalog search #}
+  {% if 'catalog:search' in allowed %}
+    <a class="tile" href="{{ url_for('catalog_search') }}">
+      <h3>Search Library Catalog</h3>
+      <p>Find books in the catalog</p>
+    </a>
+  {% else %}
+    <div class="tile disabled">
+      <h3>Search Library Catalog</h3>
+      <p>All roles</p>
+    </div>
+  {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+  <h2>{{ title }}</h2>
+  <div class="card">
+    <p>{{ description }}</p>
+    <p><em>Coming soon…</em></p>
+  </div>
+  <p><a href="{{ url_for('dashboard') }}">← Back to Dashboard</a></p>
+{% endblock %}
+
